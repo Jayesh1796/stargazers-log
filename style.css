@@ -1,0 +1,228 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f8f4;
+  --ink: #202b28;
+  --muted: #64716c;
+  --line: #d7ded9;
+  --accent: #c4472d;
+  --accent-soft: #f5e5de;
+  --leaf: #356b55;
+  font-family: "Avenir Next", Avenir, "Trebuchet MS", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#dce4dd 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+}
+
+.page-shell {
+  width: min(100% - 40px, 820px);
+  margin: 0 auto;
+  padding: 76px 0 34px;
+}
+
+.page-header {
+  padding: 0 0 42px;
+  animation: arrive 500ms ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--leaf);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  padding: 0 6px;
+  color: var(--accent);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.02;
+}
+
+.intro {
+  max-width: 440px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.repository-section {
+  border-top: 2px solid var(--ink);
+  animation: arrive 600ms 100ms ease-out both;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0 10px;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.entry-count {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status.is-error {
+  color: #a83227;
+}
+
+.repository-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: repository;
+}
+
+.repository-item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: start;
+  padding: 22px 0 24px;
+  border-top: 1px solid var(--line);
+  counter-increment: repository;
+}
+
+.repository-item::before {
+  content: counter(repository, decimal-leading-zero);
+  padding-top: 4px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.repository-name {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1.42rem;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.repository-name:hover {
+  color: var(--accent);
+}
+
+.repository-description {
+  max-width: 510px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+.repository-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 5px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.repository-language {
+  color: var(--leaf);
+  font-weight: 700;
+}
+
+.page-footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.77rem;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 32px, 820px);
+    padding-top: 48px;
+  }
+
+  .repository-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .repository-meta {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding-top: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
