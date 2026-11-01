@@ -1,0 +1,23 @@
+[
+  {
+    "repository": "facebook/react",
+    "url": "https://github.com/facebook/react",
+    "description": "The library for web and native user interfaces.",
+    "language": "JavaScript",
+    "starredAt": "2026-10-28"
+  },
+  {
+    "repository": "microsoft/TypeScript",
+    "url": "https://github.com/microsoft/TypeScript",
+    "description": "TypeScript is a strongly typed programming language that builds on JavaScript.",
+    "language": "TypeScript",
+    "starredAt": "2026-10-17"
+  },
+  {
+    "repository": "vercel/next.js",
+    "url": "https://github.com/vercel/next.js",
+    "description": "The React framework for the web.",
+    "language": "JavaScript",
+    "starredAt": "2026-09-30"
+  }
+]
